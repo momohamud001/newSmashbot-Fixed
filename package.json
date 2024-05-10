@@ -1,0 +1,84 @@
+{
+  "name": "@smashorg/ai-bot",
+  "private": false,
+  "version": "1.0.0-beta.18",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "src/*",
+    "types/*"
+  ],
+  "main": "dist/index.es.js",
+  "scripts": {
+    "dev": "vite",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc && vite build",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
+    "format": "prettier --write src//**/*.{ts,tsx} --config ./.prettierrc",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@semantic-release/gitlab": "^12.1.1",
+    "@smashorg/ai-bot": "^1.0.0-beta.18",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.5",
+    "react-audio-voice-recorder": "^2.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-icons": "^4.12.0",
+    "react-player": "^2.13.0",
+    "uuid": "^9.0.1",
+    "vite-plugin-istanbul": "^5.0.0",
+    "vite-plugin-linter": "^2.0.7",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^20.9.2",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.15",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "local-package-publisher": "^1.0.5",
+    "prettier": "^3.1.0",
+    "react-hooks": "^1.0.1",
+    "semantic-release": "^22.0.8",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "module": "./dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run format"
+    ]
+  },
+  "publishConfig": {
+    "@khyatithakur:registry": "https://gitlab.com/api/v4/projects/51982500/packages/npm/"
+  }
+}
